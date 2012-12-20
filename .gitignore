@@ -6,3 +6,4 @@ classes
 manifest.mf
 nbbuild.xml
 nbproject
+/sunflow/dist/
