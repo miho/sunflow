@@ -80,13 +80,13 @@ public class FileMesh implements Tesselatable {
                 BufferedReader bf = new BufferedReader(file);
                 String line;
                 while ((line = bf.readLine()) != null) {
-                    if (line.startsWith("v")) {
+                    if (line.startsWith("v") && !line.startsWith("vt")) {
                         String[] v = line.split("\\s+");
                         verts.add(Float.parseFloat(v[1]));
                         verts.add(Float.parseFloat(v[2]));
                         verts.add(Float.parseFloat(v[3]));
                     } else if (line.startsWith("f")) {
-                        String[] f = line.split("\\s+");
+                        String[] f = line.split("\\s+/");
                         if (f.length == 5) {
                             tris.add(Integer.parseInt(f[1]) - 1);
                             tris.add(Integer.parseInt(f[2]) - 1);
